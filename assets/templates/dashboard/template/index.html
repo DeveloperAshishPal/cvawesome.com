@@ -1,0 +1,19 @@
+<!--add id="HTMLtoPDF" then following div will be Printed according to html-->
+<div class="row">
+        <div ng-repeat="data in templates" class="col-sm-6 col-md-3">
+            <div class="hovereffect">
+                <img src="../../images/demo.png" class="img-responsive" alt="Generic placeholder thumbnail">
+                <a href="#/wizard" ng-click="grabId(data.id)"><div class="overlay">
+                    <h2>{{data.title}}</h2>
+                    <br>
+                    <p class="info"><strong>{{data.description}}</strong></p>
+                </div>
+                </a>
+            </div>
+        </div>
+</div>
+
+
+
+
+<!--<a onclick="HTMLtoPDF()">Create PDF</a>-->

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="CvAwesome">
+
+<head>
+    <title>Welcome ,
+        <%= me.name %>!</title>
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--STYLES-->
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/agency.min.css">
+    <link rel="stylesheet" href="/styles/angular-toastr.css">
+    <link rel="stylesheet" href="/styles/app.css">
+    <link rel="stylesheet" href="/styles/font-awesome.min.css">
+    <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/login-register.css">
+    <link rel="stylesheet" href="/styles/tempImage.css">
+    <!--STYLES END-->
+    <!--Added this so the client has access to the csrf tag and it's grabbed first service side on every page -->
+    <script type="text/javascript">
+        window.SAILS_LOCALS = {
+            _csrf: '<%= _csrf %>'
+            , me: <%- JSON.stringify(me) %>
+        };
+    </script>
+</head>
+
+<body ng-controller="MainController" ng-cloak>
+    <!-- Audio File setup -->
+    <audio id="chatAudio">
+        <source src="/sounds/notify.ogg" type="audio/ogg">
+        <source src="/sounds/notify.mp3" type="audio/mpeg">
+        <source src="/sounds/notify.wav" type="audio/wav"> </audio>
+    <!-- Global errors (uiErrorBus) -->
+    <div class="ui-error-bus">
+        <li ng-repeat="error in errorBus"><span>{{error.message}}</span><span ng-click="errorBus.splice(indexOf(error), 1)" class="fa fa-remove"></span></li>
+    </div>
+    <!-- container = Fixed-width container container-fluid = full-width -->
+    <div class="container-fluid">
+        <nav class="navbar navbar-default navbar-inverse">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="/#/"> CV Awesome</a>
+            <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+                <ul class="nav navbar-nav navbar-right">
+                    <li> <a href="/logout">logout</a> </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <!--this will be using angular ui router or ngroute -->
+    <div class="container-fluid">
+        <div ng-view></div>
+    </div>
+    
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/dependencies/jquery.min.js"></script>
+    <script src="/js/dependencies/angular.min.js"></script>
+    <script src="/js/dependencies/bootstrap.min.js"></script>
+    <script src="/js/dependencies/agency.js"></script>
+    <script src="/js/dependencies/angular-cookies.js"></script>
+    <script src="/js/dependencies/angular-messages.js"></script>
+    <script src="/js/dependencies/angular-route.min.js"></script>
+    <script src="/js/dependencies/angular-toastr.js"></script>
+    <script src="/js/dependencies/application.js"></script>
+    <script src="/js/dependencies/compareTo.module.js"></script>
+    <script src="/js/dependencies/contact_me.js"></script>
+    <script src="/js/dependencies/jqBootstrapValidation.js"></script>
+    <script src="/js/dependencies/jquery.easing.min.js"></script>
+    <script src="/js/dependencies/jspdf.js"></script>
+    <script src="/js/dependencies/lodash.min.js"></script>
+    <script src="/js/dependencies/login-register.js"></script>
+    <script src="/js/dependencies/moment.js"></script>
+    <script src="/js/dependencies/pdfFromHTML.js"></script>
+    <script src="/js/activity-overlord-dashboard/CvAwesome.module.js"></script>
+    <script src="/js/activity-overlord-dashboard/DashboardCtrl.js"></script>
+    <script src="/js/activity-overlord-dashboard/TemplateCtrl.js"></script>
+    <script src="/js/activity-overlord-dashboard/WizardCtrl.js"></script>
+    <script src="/js/activity-overlord-dashboard/modelService.js"></script>
+    <script src="/js/activity-overlord-public/ActivityOverlordPublic.module.js"></script>
+    <script src="/js/activity-overlord-public/ui-controls/PublicCtrl.js"></script>
+    <!--SCRIPTS END-->
+</body>
+
+</html>

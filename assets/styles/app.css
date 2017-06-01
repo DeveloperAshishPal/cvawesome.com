@@ -1,0 +1,19 @@
+.center-images{
+    display : block;
+    margin : auto;
+}
+
+.outer-div
+{
+     padding: 30px;
+}
+.inner-div
+{
+     margin: auto;
+     width: 100px;
+     height: 100px;  
+}
+
+.imagebox{
+    height: 100%; width: 100%; object-fit: contain;
+}

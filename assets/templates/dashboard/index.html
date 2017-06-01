@@ -1,0 +1,18 @@
+<div>
+    <!--this div will be when there is cv-->
+    <div>
+        <div ng-if="isCreated" class="row">
+            <div class="col-md-6 col-sm-12"> <img src="../../images/demo.png" class="well imagebox" alt="resume preview"> </div>
+            <div class="col-md-6 col-sm-12">
+                <h1>heading</h1>
+                <h3>subtitle</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+                <div class="row"> <a href="#/template" class="btn btn-info">Update</a> <a href="#/template" class="btn btn-danger">Delete</a> <a href="#/template" class="btn btn-success">Preview</a> </div>
+            </div>
+        </div>
+    </div>
+    <!--this div will be showen when no cv is there-->
+    <div ng-if="!isCreated" class="outer-div"> <img class="center-images" src="../../images/notFound.jpg" alt="Not Found">
+        <div class="inner-div"> <a href="#/template" class="btn btn-primary">Create One</a> </div>
+    </div>
+</div>
